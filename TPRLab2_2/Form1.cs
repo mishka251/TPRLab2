@@ -19,7 +19,6 @@ namespace TPRLab2_2
             root = new Situation(0, "main", 2);
             sits3.Add(tbName, root);
             sits2.Add(tbProp, root);
-            sitCount = 1;
         }
         const int dy = 40;
         const int dx = 600;
@@ -38,7 +37,6 @@ namespace TPRLab2_2
         Dictionary<TextBox, Situation> sits2;
         Dictionary<TextBox, Situation> sits3;
         Situation root;
-        int sitCount;
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
             AskForm af = new AskForm();
@@ -46,9 +44,11 @@ namespace TPRLab2_2
             select sel = af.sel;
 
             TextBox tb = sender as TextBox;
-            Label lbl = new Label();
-            lbl.Top = tb.Top + dy;
-            lbl.Left = tb.Left;
+            Label lbl = new Label
+            {
+                Top = tb.Top + dy,
+                Left = tb.Left
+            };
 
             sits2[tb].sel = sel;
 
@@ -65,20 +65,35 @@ namespace TPRLab2_2
 
             Label lbl = sender as Label;
 
-            Situation newsit = new Situation(0, "", sits[lbl].depth + 1, sits[lbl].down.Count + 1);
-            TextBox tb1 = new TextBox();
-            tb1.Top = lbl.Top + dy;
-            tb1.Left = lbl.Left + (sits[lbl].down.Count - 1) * dx_a[sits[lbl].depth];
-            tb1.Width = tbName.Width;
-            tb1.Height = tbName.Height;
+            Situation newsit = new Situation(0, "", sits[lbl].depth + 1);
+            TextBox tb1 = new TextBox
+            {
+                Top = lbl.Top + dy,
+                Left = lbl.Left + (sits[lbl].down.Count - 1) * dx_a[sits[lbl].depth],
+                Width = tbName.Width,
+                Height = tbName.Height
+            };
 
-            TextBox tb2 = new TextBox();
-            tb2.Top = tb1.Top + tb1.Height;
-            tb2.Left = tb1.Left;
-            tb2.Width = tbProp.Width;
-            tb2.Height = tbProp.Height;
+            TextBox tb2 = new TextBox
+            {
+                Top = tb1.Top + tb1.Height,
+                Left = tb1.Left,
+                Width = tbProp.Width,
+                Height = tbProp.Height
+            };
+            Label lbl1 = new Label
+            {
+                Text = lblName.Text,
+                Left = tb1.Left - lblName.Width,
+                Top = tb1.Top
+            };
+            Label lbl2 = new Label
+            {
+                Text = lblProp.Text,
+                Left = tb2.Left - lblProp.Width,
+                Top = tb2.Top
+            };
 
-            
             tb2.MouseDoubleClick += textBox1_MouseClick;
 
             tb1.TextChanged += tbName_TextChanged;
@@ -91,6 +106,9 @@ namespace TPRLab2_2
 
             this.Controls.Add(tb1);
             this.Controls.Add(tb2);
+
+            this.Controls.Add(lbl1);
+            this.Controls.Add(lbl2);
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)

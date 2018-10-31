@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TPRLab2_2
 {
@@ -32,11 +28,6 @@ namespace TPRLab2_2
         /// для вывода
         /// </summary>
         public int depth;
-        /// <summary>
-        /// Индекс - индекс в списке down для предка
-        /// для вывода
-        /// </summary>
-        public int index;
 
         /// <summary>
         /// Конструктор 
@@ -44,17 +35,13 @@ namespace TPRLab2_2
         /// <param name="property">Вероятность</param>
         /// <param name="name">Название</param>
         /// <param name="dep">Глубина</param>
-        /// <param name="ind">Индекс</param>
-        /// <param name="down">Потомки</param>
-        /// <param name="sel">Вариант "И" или "ИЛИ"</param>
-        public Situation(double property, string name, int dep, int ind = 1, List<Situation> down = null, select sel = select.AND)
+        public Situation(double property, string name, int dep)
         {
             depth = dep;
             this.property = property;
             Name = name;
-            this.down = down ?? new List<Situation>();
-            this.sel = sel;
-            index = ind;
+            this.down =  new List<Situation>();
+            this.sel = select.OR;
         }
 
         /// <summary>
@@ -101,9 +88,9 @@ namespace TPRLab2_2
 
             else
             {
-                form = "! (! " + down[0].FALBazis();
+                form = "!(!" + down[0].FALBazis();
                 for (int i = 1; i < down.Count; i++)
-                    form += " AND ! " + down[i].FALBazis();
+                    form += " AND !" + down[i].FALBazis();
                 form += ")";
             }
             return form;

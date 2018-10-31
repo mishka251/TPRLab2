@@ -37,8 +37,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label_FAL = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblProp = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbUsherb = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -126,23 +126,23 @@
             this.label_FAL.Size = new System.Drawing.Size(0, 13);
             this.label_FAL.TabIndex = 9;
             // 
-            // label6
+            // lblName
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(491, 56);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Название";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(491, 56);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(57, 13);
+            this.lblName.TabIndex = 11;
+            this.lblName.Text = "Название";
             // 
-            // label7
+            // lblProp
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(476, 82);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Вероятность";
+            this.lblProp.AutoSize = true;
+            this.lblProp.Location = new System.Drawing.Point(476, 82);
+            this.lblProp.Name = "lblProp";
+            this.lblProp.Size = new System.Drawing.Size(72, 13);
+            this.lblProp.TabIndex = 12;
+            this.lblProp.Text = "Вероятность";
             // 
             // label8
             // 
@@ -186,8 +186,8 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbUsherb);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblProp);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label_FAL);
             this.Controls.Add(this.label4);
@@ -215,8 +215,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label_FAL;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblProp;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbUsherb;
         private System.Windows.Forms.Label label9;
