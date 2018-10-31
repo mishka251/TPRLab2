@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TPRLab2_2
@@ -73,8 +67,8 @@ namespace TPRLab2_2
 
             Situation newsit = new Situation(0, "", sits[lbl].depth + 1, sits[lbl].down.Count + 1);
             TextBox tb1 = new TextBox();
-            tb1.Top = lbl.Top + dy;// + sits[lbl].index * 50;
-            tb1.Left = lbl.Left + (sits[lbl].down.Count - 1) * dx_a[sits[lbl].depth]; //+ (sits[lbl].down.Count - 1) * (dx/ (3*sits[lbl].depth));
+            tb1.Top = lbl.Top + dy;
+            tb1.Left = lbl.Left + (sits[lbl].down.Count - 1) * dx_a[sits[lbl].depth];
             tb1.Width = tbName.Width;
             tb1.Height = tbName.Height;
 
@@ -84,8 +78,7 @@ namespace TPRLab2_2
             tb2.Width = tbProp.Width;
             tb2.Height = tbProp.Height;
 
-
-            //  tb1.MouseDoubleClick += textBox1_MouseClick;
+            
             tb2.MouseDoubleClick += textBox1_MouseClick;
 
             tb1.TextChanged += tbName_TextChanged;
@@ -119,8 +112,8 @@ namespace TPRLab2_2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = root.Formula().Replace("!!", "");
-            label_FAL.Text = root.Formula1();
+            label1.Text = root.FALBazis().Replace("!!", "");
+            label_FAL.Text = root.FAL();
             double prop = root.CalculateProp();
             label2.Text = prop.ToString();
             foreach (var pair in sits2)
