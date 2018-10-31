@@ -22,7 +22,7 @@ namespace TPRLab2_2
             sits = new Dictionary<Label, Situation>();
             sits2 = new Dictionary<TextBox, Situation>();
             sits3 = new Dictionary<TextBox, Situation>();
-            root = new Situation(0,  "main", 2);
+            root = new Situation(0, "main", 2);
             sits3.Add(tbName, root);
             sits2.Add(tbProp, root);
             sitCount = 1;
@@ -70,22 +70,22 @@ namespace TPRLab2_2
         {
 
             Label lbl = sender as Label;
-            
-            Situation newsit = new Situation(0,  "", sits[lbl].depth+1, sits[lbl].down.Count+1);
+
+            Situation newsit = new Situation(0, "", sits[lbl].depth + 1, sits[lbl].down.Count + 1);
             TextBox tb1 = new TextBox();
-            tb1.Top = lbl.Top+dy;// + sits[lbl].index * 50;
-            tb1.Left = lbl.Left +  (sits[lbl].down.Count - 1) * dx_a[sits[lbl].depth]; //+ (sits[lbl].down.Count - 1) * (dx/ (3*sits[lbl].depth));
+            tb1.Top = lbl.Top + dy;// + sits[lbl].index * 50;
+            tb1.Left = lbl.Left + (sits[lbl].down.Count - 1) * dx_a[sits[lbl].depth]; //+ (sits[lbl].down.Count - 1) * (dx/ (3*sits[lbl].depth));
             tb1.Width = tbName.Width;
             tb1.Height = tbName.Height;
 
             TextBox tb2 = new TextBox();
-            tb2.Top = tb1.Top+ tb1.Height ;
+            tb2.Top = tb1.Top + tb1.Height;
             tb2.Left = tb1.Left;
             tb2.Width = tbProp.Width;
             tb2.Height = tbProp.Height;
 
 
-          //  tb1.MouseDoubleClick += textBox1_MouseClick;
+            //  tb1.MouseDoubleClick += textBox1_MouseClick;
             tb2.MouseDoubleClick += textBox1_MouseClick;
 
             tb1.TextChanged += tbName_TextChanged;
@@ -121,9 +121,18 @@ namespace TPRLab2_2
         {
             label1.Text = root.Formula().Replace("!!", "");
             label_FAL.Text = root.Formula1();
-            label2.Text = root.CalculateProp().ToString();
+            double prop = root.CalculateProp();
+            label2.Text = prop.ToString();
             foreach (var pair in sits2)
                 pair.Key.Text = pair.Value.property.ToString();
+
+            if (double.TryParse(tbUsherb.Text, out double price))
+            {
+                lblUsherb.Text = (prop * price).ToString();
+            }
+            else
+                lblUsherb.Text = "Ошибка ввода цены ущерба";
+
         }
     }
 }
