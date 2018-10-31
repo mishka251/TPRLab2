@@ -29,6 +29,16 @@ namespace TPRLab2_2
         const int dy = 40;
         const int dx = 600;
 
+        int[] dx_a = new int[]
+        {
+            900,
+            300,
+            250,
+            70,
+            55,
+            5
+        };
+
         Dictionary<Label, Situation> sits;
         Dictionary<TextBox, Situation> sits2;
         Situation root;
@@ -59,16 +69,16 @@ namespace TPRLab2_2
 
             Label lbl = sender as Label;
             
-            Situation newsit = new Situation(0,  "", sits[lbl].depth+1);
+            Situation newsit = new Situation(0,  "", sits[lbl].depth+1, sits[lbl].down.Count+1);
             TextBox tb1 = new TextBox();
-            tb1.Top = lbl.Top + dy;
-            tb1.Left =  lbl.Left + (sits[lbl].down.Count - 1) * (dx/ (3*sits[lbl].depth));
+            tb1.Top = lbl.Top+dy;// + sits[lbl].index * 50;
+            tb1.Left = lbl.Left +  (sits[lbl].down.Count - 1) * dx_a[sits[lbl].depth]; //+ (sits[lbl].down.Count - 1) * (dx/ (3*sits[lbl].depth));
             tb1.Width = tbName.Width;
             tb1.Height = tbName.Height;
 
             TextBox tb2 = new TextBox();
-            tb2.Top = lbl.Top + dy + tb1.Height;
-            tb2.Left = lbl.Left + (sits[lbl].down.Count - 1) * (dx / (3*sits[lbl].depth));
+            tb2.Top = tb1.Top+ tb1.Height ;
+            tb2.Left = tb1.Left;
             tb2.Width = tbProp.Width;
             tb2.Height = tbProp.Height;
 
