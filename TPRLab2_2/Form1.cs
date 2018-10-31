@@ -21,8 +21,9 @@ namespace TPRLab2_2
 
             sits = new Dictionary<Label, Situation>();
             sits2 = new Dictionary<TextBox, Situation>();
+            sits3 = new Dictionary<TextBox, Situation>();
             root = new Situation(0,  "main", 2);
-            sits2.Add(tbName, root);
+            sits3.Add(tbName, root);
             sits2.Add(tbProp, root);
             sitCount = 1;
         }
@@ -41,6 +42,7 @@ namespace TPRLab2_2
 
         Dictionary<Label, Situation> sits;
         Dictionary<TextBox, Situation> sits2;
+        Dictionary<TextBox, Situation> sits3;
         Situation root;
         int sitCount;
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
@@ -83,7 +85,7 @@ namespace TPRLab2_2
             tb2.Height = tbProp.Height;
 
 
-            tb1.MouseDoubleClick += textBox1_MouseClick;
+          //  tb1.MouseDoubleClick += textBox1_MouseClick;
             tb2.MouseDoubleClick += textBox1_MouseClick;
 
             tb1.TextChanged += tbName_TextChanged;
@@ -91,7 +93,7 @@ namespace TPRLab2_2
 
             sits[lbl].down.Add(newsit);
 
-            sits2.Add(tb1, newsit);
+            sits3.Add(tb1, newsit);
             sits2.Add(tb2, newsit);
 
             this.Controls.Add(tb1);
@@ -100,7 +102,7 @@ namespace TPRLab2_2
 
         private void tbName_TextChanged(object sender, EventArgs e)
         {
-            sits2[sender as TextBox].Name = (sender as TextBox).Text;
+            sits3[sender as TextBox].Name = (sender as TextBox).Text;
         }
 
         private void tbProp_TextChanged(object sender, EventArgs e)
@@ -117,8 +119,11 @@ namespace TPRLab2_2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = root.Formula();
+            label1.Text = root.Formula().Replace("!!", "");
+            label_FAL.Text = root.Formula1();
             label2.Text = root.CalculateProp().ToString();
+            foreach (var pair in sits2)
+                pair.Key.Text = pair.Value.property.ToString();
         }
     }
 }
