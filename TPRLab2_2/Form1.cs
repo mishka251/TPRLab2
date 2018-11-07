@@ -145,5 +145,10 @@ namespace TPRLab2_2
                 lblUsherb.Text = "Ошибка ввода цены ущерба";
 
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

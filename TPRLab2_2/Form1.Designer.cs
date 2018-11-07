@@ -66,6 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
@@ -73,7 +74,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.RosyBrown;
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(15, 201);
             this.button1.Name = "button1";
@@ -121,6 +122,7 @@
             // label_FAL
             // 
             this.label_FAL.AutoSize = true;
+            this.label_FAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_FAL.Location = new System.Drawing.Point(12, 38);
             this.label_FAL.Name = "label_FAL";
             this.label_FAL.Size = new System.Drawing.Size(0, 13);
@@ -147,17 +149,18 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(869, 35);
+            this.label8.Location = new System.Drawing.Point(921, 16);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
+            this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 13;
-            this.label8.Text = "Ущерб";
+            this.label8.Text = "Расчет ущерба";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // tbUsherb
             // 
-            this.tbUsherb.Location = new System.Drawing.Point(855, 67);
+            this.tbUsherb.Location = new System.Drawing.Point(904, 38);
             this.tbUsherb.Name = "tbUsherb";
-            this.tbUsherb.Size = new System.Drawing.Size(100, 20);
+            this.tbUsherb.Size = new System.Drawing.Size(120, 20);
             this.tbUsherb.TabIndex = 14;
             // 
             // label9
@@ -172,6 +175,7 @@
             // lblUsherb
             // 
             this.lblUsherb.AutoSize = true;
+            this.lblUsherb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblUsherb.Location = new System.Drawing.Point(13, 179);
             this.lblUsherb.Name = "lblUsherb";
             this.lblUsherb.Size = new System.Drawing.Size(0, 13);
@@ -181,6 +185,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1054, 641);
             this.Controls.Add(this.lblUsherb);
             this.Controls.Add(this.label9);
